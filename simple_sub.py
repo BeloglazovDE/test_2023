@@ -7,13 +7,13 @@
 # bab ---> bzb
 # bcb ---> bzb
 # bxb ---> bzb
-REGEXP_1 = ''
-REGEXP_1_REPL = ''
+REGEXP_1 = 'b[acx]b'
+REGEXP_1_REPL = 'bzb'
 
 # abcXYZabc   ---> abcabc
 # XaYbZcWaM   ---> abca
 # abc XYZabc  ---> abc abc
-REGEXP_2 = ''
+REGEXP_2 = r'[XYZWM]'
 REGEXP_2_REPL = ''
 
 # abcABCabc  ---> abcABCabc
@@ -22,26 +22,26 @@ REGEXP_2_REPL = ''
 # XaYbZcZaY  ---> XaYbZcZaY
 # DXEYFZabc  ---> XYZabc
 # ADBECFXYZ  ---> ABCXYZ
-REGEXP_3 = ''
-REGEXP_3_REPL = ''
+REGEXP_3 = r'[D-Fd-f]'
+REGEXP_3_REPL = r''
 
 # abc0abc   ---> abcabc
 # 1a2b3c4   ---> abc
 # a123!@#bc ---> abc
-REGEXP_4 = ''
+REGEXP_4 = '[^a-zA-Z]*'
 REGEXP_4_REPL = ''
 
 # a,b,c d,e,f      ---> a_b_c_d_e_f
 # abc!@#a          ---> abc___a
 # abc!@#,./abc abc ---> abc______abc_abc
-REGEXP_5 = ''
-REGEXP_5_REPL = ''
+REGEXP_5 = '[^a-zA-Z0-9]'
+REGEXP_5_REPL = '_'
 
 # a abc aa bb  ---> a aa bb
 # a def dd fd  ---> a dd fd
 # x xy xyz yz  ---> x xy yz
 # x xyz xyz yz ---> x yz
-REGEXP_6 = ''
+REGEXP_6 = r'\b\w{3}\b\s'
 REGEXP_6_REPL = ''
 
 # AabcdZ ---> abcd
@@ -49,18 +49,18 @@ REGEXP_6_REPL = ''
 # aAbZcd ---> aAbZcd
 # AabcdY ---> abcdY
 # BabcdZ ---> Babcd
-REGEXP_7 = ''
+REGEXP_7 = r'^A|Z$'
 REGEXP_7_REPL = ''
 
 # a b c  ---> a b c
 # a  b c ---> a b c
 # d    f ---> d f
-REGEXP_8 = ''
-REGEXP_8_REPL = ''
+REGEXP_8 = '\s+'
+REGEXP_8_REPL = ' '
 
 # a ab abc abcd ab ---> a ab ab
 # a xyz xyz a      ---> a a
 # d xy xyza a      ---> d xy a
 # a xyzzy b        ---> a xyzzy b
-REGEXP_9 = ''
+REGEXP_9 = '(abc|xyz)(a|d)?\s'
 REGEXP_9_REPL = ''
